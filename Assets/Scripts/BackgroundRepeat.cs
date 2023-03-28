@@ -9,7 +9,7 @@ public class BackgroundRepeat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // 배경 크기 설정
+        // 배경 크기 설정하기
         startPos = transform.position;
         repeatWidth = GetComponent<BoxCollider>().size.x;
     }
