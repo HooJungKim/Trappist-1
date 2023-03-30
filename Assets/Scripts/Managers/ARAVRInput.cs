@@ -9,10 +9,10 @@ public static class ARAVRInput
 #if PC
     public enum ButtonTarget
     {
-        Fire1,
-        Fire2,
-        Fire3,
-        Jump
+        Fire1,  // 마우스 좌버튼
+        Fire2,  // 마우스 우버튼
+        Fire3,  // 마우스 휠버튼
+        Jump    
     }
 #endif
     public enum Button
@@ -265,6 +265,8 @@ public static class ARAVRInput
                 rHand = handObj.transform;
                 // 컨트롤러를 카메라의 자식 객체로 등록
                 rHand.parent = Camera.main.transform;
+#elif Oculus
+                rHand = GameObject.Find(" RightController Anchor").transform;
 #endif
             }
             return rHand;
