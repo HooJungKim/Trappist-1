@@ -9,7 +9,7 @@ public class BackgroundRepeat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // πË∞Ê ≈©±‚ º≥¡§«œ±‚
+        // Î∞∞Í≤Ω ÌÅ¨Í∏∞ ÏÑ§Ï†ïÌïòÍ∏∞
         startPos = transform.position;
         repeatWidth = GetComponent<BoxCollider>().size.x;
     }
@@ -17,7 +17,7 @@ public class BackgroundRepeat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // πË∞Ê ≈©±‚ ∏∏≈≠ ¿Ãµø »ƒ ø¯¿ßƒ°∑Œ ∫π±Õ
+        // Î∞∞Í≤Ω ÌÅ¨Í∏∞ ÎßåÌÅº Ïù¥Îèô ÌõÑ ÏõêÏúÑÏπòÎ°ú Î≥µÍ∑Ä
         if(transform.position.x > startPos.x + repeatWidth)
         {
             transform.position = startPos;
