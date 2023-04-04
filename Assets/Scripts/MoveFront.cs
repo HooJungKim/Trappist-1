@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveFront : MonoBehaviour
 {
-    // ÀüÁøÇÏ´Â ½ºÅ©¸³Æ®, ¼Óµµ ¼³Á¤ °¡´É
+    // ì „ì§„í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸, ì†ë„ ì„¤ì • ê°€ëŠ¥
     private float speed = 5.0f;
     // Start is called before the first frame update
     void Start()
