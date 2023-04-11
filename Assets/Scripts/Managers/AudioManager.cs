@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+
+    // 음원 주파수 대역 별 추출 인자 -> 총 8개의 대역으로 구분
     AudioSource _audioSource;
     public static float[] _samples = new float[512];
     public static float[] _freqBand = new float[8];
+
+    // 시작하고나서의 시간
+    public static int timeCheck = 0;
 
     // Start is called before the first frame update
     void Start()
