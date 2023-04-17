@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Util
 {
@@ -46,6 +47,12 @@ public class Util
         }
 
         return null;
+    }
+
+    //씬 전환 함수
+    public static void SwitchScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
 }

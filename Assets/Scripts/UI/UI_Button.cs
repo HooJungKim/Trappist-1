@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_Button : UI_Base
 {
@@ -48,7 +49,10 @@ public class UI_Button : UI_Base
     {
         Debug.Log("ButtonClikced");
 
-        Get<Text>((int)Texts.PointText).text = $"Score : {_score}";
+        //Get<Text>((int)Texts.PointText).text = $"Pressed {_score} times";
+        //_score++;
+
+        Util.SwitchScene("GameScene");
 
     }
 

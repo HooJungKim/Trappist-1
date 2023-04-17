@@ -24,7 +24,7 @@ public class UI_Base : MonoBehaviour
                 objects[i] = Util.FindChild<T>(gameObject, names[i], true);
 
             if (objects[i] == null)
-                Debug.Log($"Failed to bind({names[i]}");
+                Debug.Log($"Failed to bind({names[i]})");
 
         }
     }
