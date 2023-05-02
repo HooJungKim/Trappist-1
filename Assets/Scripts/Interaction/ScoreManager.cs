@@ -16,9 +16,10 @@ public class ScoreManager : MonoBehaviour
     먼저 탄환과 노트 스크립트 제작 필요
     */
     private int _score;
-    private bool _isHit;
+    private bool _isHit = false;
     private float _hitTime;
     private static int[] _scoreList = new int[999];
+    public static int _totalScore;
 
 
     private void Update()
@@ -31,7 +32,10 @@ public class ScoreManager : MonoBehaviour
     // 충돌 시간 측정
     private void CheckHitTime()
     {
-        _hitTime = Time.deltaTime;
+        if (_isHit)
+        {
+            _hitTime = Time.deltaTime;
+        }
     }
     // 점수 채점
     private void CheckScore()
@@ -75,7 +79,7 @@ public class ScoreManager : MonoBehaviour
     // 점수 출력
     private void ShowScore()
     {
-        int _totalScore = _scoreList.Sum();
+        _totalScore = _scoreList.Sum();
         
     }
 }
