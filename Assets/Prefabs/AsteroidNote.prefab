@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: e259e812818c9074dbe1011ab1789aae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.56
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: e259e812818c9074dbe1011ab1789aae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -135,8 +135,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e89fbc6c30178d64c8f7e77a8bc45bd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tumble: 3
+  tumble: 0
   _noteSpeed: 10
+--- !u!136 &5358439101462841655
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7928925102180210185}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.4377397
+  m_Height: 2.6509068
+  m_Direction: 1
+  m_Center: {x: 0.18410891, y: -0.106006384, z: -0.046618104}
 --- !u!4 &7928925102180567593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: e259e812818c9074dbe1011ab1789aae,

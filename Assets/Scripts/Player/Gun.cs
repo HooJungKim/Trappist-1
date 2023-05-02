@@ -5,8 +5,8 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public Transform bulletImpact; // 총알 파편 효과
-    ParticleSystem bulletEffect;   // 총알 파티클 시스템
-    AudioSource bulletAudio;       // 총알 발사 사운드
+    public ParticleSystem bulletEffect;   // 총알 파티클 시스템
+    public AudioSource bulletAudio;       // 총알 발사 사운드
     public Transform crosshair;    // 크로스헤어를 위한 속성
 
     void Start()
@@ -25,6 +25,7 @@ public class Gun : MonoBehaviour
         // 사용자가 IndexTrigger 버튼을 누르면
         if (ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger))
         {
+            ARAVRInput.PlayVibration(ARAVRInput.Controller.RTouch);
             // 총알 오디오 재생
             bulletAudio.Stop();
             bulletAudio.Play();
