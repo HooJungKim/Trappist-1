@@ -1,42 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class MobManager : MonoBehaviour
+public class NoteManager : MonoBehaviour
 {
-    private static MobManager instance;
-
-    public static MobManager Instance
+    // 노트 상태 상수 정의
+    enum NoteState
     {
-        get
+        Idle,
+        Attack,
+        Damaged
+    }
+
+    // 초기 시작 상태는 Idle로 설정
+    NoteState state = NoteState.Idle;
+    // 대기 상태의 지속 시간
+    public float idleDelyTime = 2;
+    // 경과 시간
+    float currentTime;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        switch (state)
         {
-            if (instance == null)
-                instance = GameObject.FindObjectOfType<MobManager>();
-            return instance;
+            case NoteState.Idle:
+                Idle();
+                break;
+            case NoteState.Attack:
+                Attack();
+                break;
+            case NoteState.Damaged:
+                Damaged();
+                break;
         }
     }
 
-    public UnityEvent<MobManager> OnSpawn, OnDestroy;
-
-    private List<MobManager> mobs = new List<MobManager>();
-
-    private void Awake()
+    private void Idle()
     {
-        instance = this;
-    }
-
-    public void OnSpawned(MobManager mobManager)
-    {
-        mobs.Add(mobManager);
-        OnSpawn?.Invoke(mobManager);
-    }
-
-    public void OnDestroyed(MobManager mobManager)
-    {
-        if (mobs.Remove(mobManager))
+        currentTime += Time.deltaTime;
+        if (currentTime > idleDelyTime)
         {
-            OnDestroy?.Invoke(mobManager);
+            state = NoteState.Attack;
         }
+    }
+    private void Attack()
+    {
+
+    }
+    private void Damaged()
+    {
+
     }
 }
