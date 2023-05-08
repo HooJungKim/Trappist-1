@@ -5,8 +5,8 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public Transform bulletImpact; // 총알 파편 효과
-    public ParticleSystem bulletEffect;   // 총알 파티클 시스템
-    public AudioSource bulletAudio;       // 총알 발사 사운드
+    ParticleSystem bulletEffect;   // 총알 파티클 시스템
+    AudioSource bulletAudio;       // 총알 발사 사운드
     public Transform crosshair;    // 크로스헤어를 위한 속성
 
     void Start()
@@ -35,9 +35,12 @@ public class Gun : MonoBehaviour
             RaycastHit hitInfo;
             // 플레이어 레이어 얻어오기
             int playerLayer = 1 << LayerMask.NameToLayer("Player");
+            // 노트 레이어 얻어오기
+            int noteLayer = 1 << LayerMask.NameToLayer("Note");
 
-            int layerMask = playerLayer;
+            int layerMask = playerLayer | noteLayer;
 
+            // Ray를 쏜다. ray가 부딪힌 정보는 hitinfo에 담긴다.
             if(Physics.Raycast(ray, out hitInfo, 200, ~layerMask))
             {
                 // 총알 파편 효과 처리
@@ -48,6 +51,16 @@ public class Gun : MonoBehaviour
                 bulletImpact.forward = hitInfo.normal;
                 // 부딪힌 지점 바로 위에서 이펙트가 보이도록 설정
                 bulletImpact.position = hitInfo.point;
+
+                // ray와 부딪힌 객체가 drone 이라면 피격 처리
+                if(hitInfo.transform.name.Contains("Note"))
+                {
+                    NoteManager note = hitInfo.transform.GetComponent<NoteManager>();
+                    if(note)
+                    {
+                        note.OnDamageProcess();
+                    }
+                }
             }
         }
     }
