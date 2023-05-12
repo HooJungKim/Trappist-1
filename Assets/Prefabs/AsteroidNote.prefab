@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7928925102770169438}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AsteroidNote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100006, guid: e259e812818c9074dbe1011ab1789aae, type: 3}
       propertyPath: m_Name
-      value: asteroid2_LOD0
+      value: Note
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: e259e812818c9074dbe1011ab1789aae, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: e259e812818c9074dbe1011ab1789aae, type: 3}
       propertyPath: m_RootOrder
@@ -123,20 +127,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7928925103817657021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7928925102180210185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89fbc6c30178d64c8f7e77a8bc45bd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tumble: 0
-  _noteSpeed: 10
 --- !u!136 &5358439101462841655
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -151,6 +141,33 @@ CapsuleCollider:
   m_Height: 2.6509068
   m_Direction: 1
   m_Center: {x: 0.18410891, y: -0.106006384, z: -0.046618104}
+--- !u!114 &73340868516612138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7928925102180210185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfd902ba1aedb1478f7c018b415642e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleDelyTime: 2
+--- !u!114 &7928925103817657021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7928925102180210185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e89fbc6c30178d64c8f7e77a8bc45bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tumble: 0
+  _noteSpeed: 10
 --- !u!4 &7928925102180567593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: e259e812818c9074dbe1011ab1789aae,

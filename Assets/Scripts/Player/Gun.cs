@@ -38,7 +38,7 @@ public class Gun : MonoBehaviour
             // 노트 레이어 얻어오기
             int noteLayer = 1 << LayerMask.NameToLayer("Note");
 
-            int layerMask = playerLayer | noteLayer;
+            int layerMask = playerLayer;
 
             // Ray를 쏜다. ray가 부딪힌 정보는 hitinfo에 담긴다.
             if(Physics.Raycast(ray, out hitInfo, 200, ~layerMask))
@@ -52,7 +52,7 @@ public class Gun : MonoBehaviour
                 // 부딪힌 지점 바로 위에서 이펙트가 보이도록 설정
                 bulletImpact.position = hitInfo.point;
 
-                // ray와 부딪힌 객체가 drone 이라면 피격 처리
+                // ray와 부딪힌 객체가 note 라면 피격 처리
                 if(hitInfo.transform.name.Contains("Note"))
                 {
                     NoteManager note = hitInfo.transform.GetComponent<NoteManager>();
