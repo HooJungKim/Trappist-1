@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
 
     // 음원 주파수 대역 별 추출 인자 -> 총 8개의 대역으로 구분
-    AudioSource _audioSource;
+    static AudioSource _audioSource;
     public static float[] _samples = new float[512];
     public static float[] _freqBand = new float[8];
 
@@ -76,5 +76,14 @@ public class AudioManager : MonoBehaviour
             _freqBand[i] = average * 10;
         }
 
+    }
+
+    public static void pauseAudioSource()
+    {
+        _audioSource.Stop();
+    }
+    public static void playAudioSource()
+    {
+        _audioSource.Play();
     }
 }

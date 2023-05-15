@@ -23,7 +23,7 @@ public class HPBar : MonoBehaviour
         damageImage.enabled = false;
     }
 
-    //타워의 최초 HP
+    //플레이어의 최초 HP
     public int initialHP = 100;
     //내부 hp 변수
     int _hp = 0;

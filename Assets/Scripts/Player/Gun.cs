@@ -9,6 +9,8 @@ public class Gun : MonoBehaviour
     AudioSource bulletAudio;       // 총알 발사 사운드
     public Transform crosshair;    // 크로스헤어를 위한 속성
 
+
+
     void Start()
     {
         // 총알 효과 파티클 시스템 컴포넌트 가져오기

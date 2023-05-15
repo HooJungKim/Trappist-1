@@ -12,10 +12,33 @@ public class NoteManager : MonoBehaviour
         Damaged
     }
 
+
+    // 초기 시작 상태는 Idle로 설정
+    NoteState state = NoteState.Idle;
+    // 대기 상태의 지속 시간
+    public float idleDelyTime = 2;
+    // 경과 시간
+    float currentTime;
+
+
+    Transform player;
+    // 공격 범위
+    //public float attackRange = 1.0f;
+
+
+    [SerializeField]
+    int hp = 1;
+    //폭발 효과
+    Transform explosion;
+    ParticleSystem expEffect;
+    AudioSource expAudio;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        explosion = GameObject.Find("Explosion").transform;
+        expEffect = explosion.GetComponent<ParticleSystem>();
+        expAudio = explosion.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,12 +58,6 @@ public class NoteManager : MonoBehaviour
         }
     }
 
-    // 초기 시작 상태는 Idle로 설정
-    NoteState state = NoteState.Idle;
-    // 대기 상태의 지속 시간
-    public float idleDelyTime = 2;
-    // 경과 시간
-    float currentTime;
 
     private void Idle()
     {
@@ -51,19 +68,12 @@ public class NoteManager : MonoBehaviour
         }
     }
 
-    Transform player;
-    // 공격 범위
-    //public float attackRange = 1.0f;
-
     private void Attack()
     {
         //if (Vector3.Distance(transform.position, player.position) < attackRange)
         HPBar.Instance.HP -= Random.Range(5, 10);
         currentTime = 0;
         state = NoteState.Idle;
-
-
-
     }
     //private void Damaged()
     //{
@@ -86,7 +96,6 @@ public class NoteManager : MonoBehaviour
         // 경과 시간 초기화
         currentTime = 0;
 
-
     }
 
     public void OnDamageProcess()
@@ -94,5 +103,16 @@ public class NoteManager : MonoBehaviour
         state = NoteState.Damaged;
         StopAllCoroutines();
         StartCoroutine(Damage());
+        // 폭발 효과의 위치 지정
+        explosion.position = transform.position;
+        // 이펙트 재생
+        expEffect.Play();
+        // 이펙트 사운드 재생
+        expAudio.Play();
+        // 노트 없애기
+        Destroy(gameObject);
+        // score 상승
+        ScoreManager._totalScore++;
     }
+     
 }
