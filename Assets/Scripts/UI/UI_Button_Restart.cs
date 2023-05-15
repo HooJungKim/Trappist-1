@@ -6,12 +6,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UI_Button : UI_Base
+public class UI_Button_Restart : UI_Base
 {
     Dictionary<System.Type, UnityEngine.Object[]> _objects = new Dictionary<System.Type, UnityEngine.Object[]>();
     enum Buttons
     {
-        PointButton
+        PointButton,
+        Restart
+        
     }
 
     enum Texts
@@ -38,7 +40,7 @@ public class UI_Button : UI_Base
         Bind<GameObject>(typeof(GameObjects));
         Bind<Image>(typeof(Images));
 
-        Get<Button>((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
+        Get<Button>((int)Buttons.Restart).gameObject.AddUIEvent(OnButtonClicked);
 
         GameObject go = GetImage((int)Images.ItemIcon).gameObject;
         AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
@@ -52,7 +54,7 @@ public class UI_Button : UI_Base
         //Get<Text>((int)Texts.PointText).text = $"Pressed {_score} times";
         //_score++;
 
-        Util.SwitchScene("GameScene");
+        Util.SwitchScene("IntroScene");
 
     }
 
