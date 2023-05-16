@@ -24,9 +24,11 @@ public class HPBar : MonoBehaviour
     }
 
     //플레이어의 최초 HP
-    public int initialHP = 100;
+    int initialHP = 100;
     //내부 hp 변수
     int _hp = 0;
+    //현재 체력 슬라이더
+    public Slider hpSlider;
 
     public int HP
     {
@@ -46,6 +48,7 @@ public class HPBar : MonoBehaviour
             if(_hp <= 0)
             {
                 // 게임 오버 처리
+                Util.SwitchScene("GameOverScene");
             }
         }
     }
@@ -67,7 +70,7 @@ public class HPBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        hpSlider.value = _hp;
     }
 
     public static HPBar Instance;
