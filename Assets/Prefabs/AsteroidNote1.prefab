@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7928925102770169438}
   m_Layer: 8
-  m_Name: AsteroidNote
+  m_Name: AsteroidNote1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleDelyTime: 2
+  hp: 1
 --- !u!114 &7928925103817657021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tumble: 0
-  _noteSpeed: 10
+  _noteSpeed: 3
 --- !u!4 &7928925102180567593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: e259e812818c9074dbe1011ab1789aae,

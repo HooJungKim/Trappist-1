@@ -37,7 +37,7 @@ public class InstantiateNote : MonoBehaviour
 
             if ((AudioManager._freqBand[_band] * _scaleMultiplier) > 10.0f)
             {
-                GameObject _instanceNote = (GameObject)Instantiate(_samplePrefab);
+                GameObject _instanceNote = (GameObject)Instantiate(_samplePrefab, transform.position, Quaternion.identity);
 
                 Destroy(_instanceNote, 5.0f);
             }

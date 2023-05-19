@@ -8,7 +8,7 @@ public class NoteMovement : MonoBehaviour
     private float tumble;
 
     [SerializeField]
-    private float _noteSpeed = 10.0f;
+    private float _noteSpeed = 3.0f;
 
     //float xPosition = 0.0f;
     //float yPosition = 0.0f;

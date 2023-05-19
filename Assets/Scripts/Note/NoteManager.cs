@@ -23,7 +23,7 @@ public class NoteManager : MonoBehaviour
 
     Transform player;
     // 공격 범위
-    //public float attackRange = 1.0f;
+    public float attackRange = 2.0f;
 
 
     [SerializeField]
@@ -36,6 +36,7 @@ public class NoteManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player").transform;
         explosion = GameObject.Find("Explosion").transform;
         expEffect = explosion.GetComponent<ParticleSystem>();
         expAudio = explosion.GetComponent<AudioSource>();
@@ -70,10 +71,12 @@ public class NoteManager : MonoBehaviour
 
     private void Attack()
     {
-        //if (Vector3.Distance(transform.position, player.position) < attackRange)
-        HPBar.Instance.HP -= Random.Range(5, 10);
-        currentTime = 0;
-        state = NoteState.Idle;
+        if (Vector3.Distance(transform.position, player.position) < attackRange)
+        {
+            HPBar.Instance.HP -= Random.Range(5, 10);
+            currentTime = 0;
+            state = NoteState.Idle;
+        }        
     }
     //private void Damaged()
     //{
