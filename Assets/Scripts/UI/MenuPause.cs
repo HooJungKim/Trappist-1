@@ -6,12 +6,19 @@ public class MenuPause : MonoBehaviour
 {
     public static bool isPaused = false;
     public GameObject pauseMenuCanvas;
+    GameObject backgroundMusic;
+    AudioSource gameBGM;
 
     private void Start()
     {
         pauseMenuCanvas.SetActive(false);
     }
 
+    private void Awake()
+    {
+        backgroundMusic = GameObject.Find("AudioManager");
+        gameBGM = backgroundMusic.GetComponent<AudioSource>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -32,7 +39,7 @@ public class MenuPause : MonoBehaviour
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-        AudioManager.playAudioSource();
+        gameBGM.Play();
     }
 
     public void Pause()
@@ -40,6 +47,6 @@ public class MenuPause : MonoBehaviour
         pauseMenuCanvas.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
-        AudioManager.pauseAudioSource();
+        gameBGM.Pause();
     }
 }

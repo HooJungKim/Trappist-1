@@ -69,19 +69,27 @@ public class NoteManager : MonoBehaviour
         }
     }
 
+    bool isCollisionSpaceShip = false;
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.gameObject.CompareTag("Spaceship"))
+        {
+            isCollisionSpaceShip = true;
+        }
+    }
     private void Attack()
     {
-        if (Vector3.Distance(transform.position, player.position) < attackRange)
+        //if (Vector3.Distance(transform.position, player.position) < attackRange)
+        if (isCollisionSpaceShip == true)
         {
             HPBar.Instance.HP -= Random.Range(5, 10);
             currentTime = 0;
             state = NoteState.Idle;
-        }        
+            isCollisionSpaceShip = false;
+        }
     }
-    //private void Damaged()
-    //{
-
-    //}
+ 
     IEnumerator Damage()
     {
         // 자식 객체의 MeshRenderer에서 재질 얻어오기
@@ -115,7 +123,7 @@ public class NoteManager : MonoBehaviour
         // 노트 없애기
         Destroy(gameObject);
         // score 상승
-        ScoreManager._totalScore++;
+        //ScoreManager._totalScore++;
     }
-     
+
 }

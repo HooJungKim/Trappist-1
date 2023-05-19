@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 {
 
     // 음원 주파수 대역 별 추출 인자 -> 총 8개의 대역으로 구분
-    static AudioSource _audioSource;
+    public static AudioSource _audioSource;
     public static float[] _samples = new float[512];
     public static float[] _freqBand = new float[8];
 

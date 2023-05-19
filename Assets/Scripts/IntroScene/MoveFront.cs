@@ -5,13 +5,9 @@ using UnityEngine;
 
 public class MoveFront : MonoBehaviour
 {
-    public GameObject _Asteroid;
     // 전진하는 스크립트, 속도 설정 가능
     [SerializeField]
-    private float speed = 8.0f;
-
-    public float createTime = 1.0f;
-    float currentTime = 0;
+    private float speed = 20.0f;
 
     [SerializeField]
     private float tumble;
@@ -25,15 +21,7 @@ public class MoveFront : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        currentTime += Time.deltaTime;
-
-        if (currentTime > createTime)
-        {
-            GameObject _backgroundAsteroid = Instantiate(_Asteroid);
+    {      
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
-            Destroy(_backgroundAsteroid, 20.0f);
-            currentTime = 0;
-        }
     }
 }

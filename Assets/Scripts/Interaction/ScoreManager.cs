@@ -15,23 +15,13 @@ public class ScoreManager : MonoBehaviour
 
     먼저 탄환과 노트 스크립트 제작 필요
     */
-    private int _score = 5;
     private bool _isHit = false;
     private float _hitTime;
     private static int[] _scoreList = new int[999];
     public static int _totalScore;
-    int i = 0;
 
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonUp(2))
-        {
-            SaveScore();
 
-            ShowScore();
-        }
-    }
 
     /*
     // 충돌 시간 측정
@@ -76,7 +66,7 @@ public class ScoreManager : MonoBehaviour
     }
     */
     // 점수 저장
-    private void SaveScore()
+    public static void SaveScore()
     {
         /*RaycastHit hitinfo;
         if (hitInfo.transform.name.Contains("Note"))
@@ -84,19 +74,21 @@ public class ScoreManager : MonoBehaviour
             
         }
         */
-        
-        
+
+
         //CheckScore();
+        int i = 0;
+        int _score = 5;
         _scoreList[i] = _score;
         i++;
         //_isHit = false;
-  
+
     }
 
     // 점수 출력
-    private void ShowScore()
+    public static void ShowScore()
     {
         _totalScore = _scoreList.Sum();
-        
+
     }
 }

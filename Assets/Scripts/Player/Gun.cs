@@ -19,7 +19,7 @@ public class Gun : MonoBehaviour
         bulletAudio = bulletImpact.GetComponent<AudioSource>();
     }
 
-    
+
     void Update()
     {
         // 크로스헤어 표시
@@ -43,7 +43,7 @@ public class Gun : MonoBehaviour
             int layerMask = playerLayer;
 
             // Ray를 쏜다. ray가 부딪힌 정보는 hitinfo에 담긴다.
-            if(Physics.Raycast(ray, out hitInfo, 200, ~layerMask))
+            if (Physics.Raycast(ray, out hitInfo, 200, ~layerMask))
             {
                 // 총알 파편 효과 처리
                 // 총알 이펙트가 진행 중이면 멈추고 재생
@@ -55,12 +55,15 @@ public class Gun : MonoBehaviour
                 bulletImpact.position = hitInfo.point;
 
                 // ray와 부딪힌 객체가 note 라면 피격 처리
-                if(hitInfo.transform.name.Contains("Note"))
+                if (hitInfo.transform.name.Contains("Note"))
                 {
                     NoteManager note = hitInfo.transform.GetComponent<NoteManager>();
-                    if(note)
+                    if (note)
                     {
                         note.OnDamageProcess();
+                        //ScoreManager.SaveScore();
+                        //ScoreManager.ShowScore();
+                        ScoreManager._totalScore += 5;
                     }
                 }
             }
