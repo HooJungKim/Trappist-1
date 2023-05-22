@@ -17,10 +17,15 @@ public class MenuClear : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > 96)
+        //if (Time.time > 96)
+        if(!AudioManager._audioSource.isPlaying)
         {
             clearCanvas.SetActive(true);
 
+        }
+        else
+        {
+            clearCanvas.SetActive(false);
         }
     }
 }

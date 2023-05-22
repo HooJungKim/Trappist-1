@@ -9,7 +9,7 @@ public class MenuPause : MonoBehaviour
     GameObject backgroundMusic;
     AudioSource gameBGM;
 
-    private void Start()
+    void Start()
     {
         pauseMenuCanvas.SetActive(false);
     }

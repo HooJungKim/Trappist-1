@@ -40,8 +40,8 @@ public class UI_Button_Start : UI_Base
 
         Get<Button>((int)Buttons.PointButton).gameObject.AddUIEvent(OnButtonClicked);
 
-        GameObject go = GetImage((int)Images.ItemIcon).gameObject;
-        AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
+        //GameObject go = GetImage((int)Images.ItemIcon).gameObject;
+        //AddUIEvent(go, (PointerEventData data) => { go.transform.position = data.position; }, Define.UIEvent.Drag);
     }
 
     int _score = 0;
@@ -53,6 +53,8 @@ public class UI_Button_Start : UI_Base
         //_score++;
 
         Util.SwitchScene("GameScene");
+        Time.timeScale = 1f;
+        MenuPause.isPaused = false;
 
     }
 
