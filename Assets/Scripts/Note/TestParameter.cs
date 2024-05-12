@@ -6,11 +6,6 @@ public class TestParameter : MonoBehaviour
 {
     public int _band;
     public float _startScale, _scaleMultiplier;
-    void Start()
-    {
-        
-    }
-
     
     void Update()
     {

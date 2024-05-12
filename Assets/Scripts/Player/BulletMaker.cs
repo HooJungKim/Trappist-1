@@ -37,7 +37,6 @@ public class BulletMaker : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hitInfo = new RaycastHit();
 
-            // 2. 마우스의 위치가 바닥 위에 위치해 있다면
             if (Physics.Raycast(ray, out hitInfo) && ARAVRInput.GetDown(ARAVRInput.Button.IndexTrigger))
             {
                 // 오브젝트 풀에 불렛이 있다면

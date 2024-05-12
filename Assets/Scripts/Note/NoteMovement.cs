@@ -10,11 +10,6 @@ public class NoteMovement : MonoBehaviour
     [SerializeField]
     private float _noteSpeed = 7.0f;
 
-    //float xPosition = 0.0f;
-    //float yPosition = 0.0f;
-    //float zPosition = 0.0f;
-
-
     void Start()
     {
         GetComponent<Rigidbody>().angularVelocity = Random.insideUnitSphere * tumble;

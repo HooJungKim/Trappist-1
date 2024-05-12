@@ -61,8 +61,6 @@ public class Gun : MonoBehaviour
                     if (note)
                     {
                         note.OnDamageProcess();
-                        //ScoreManager.SaveScore();
-                        //ScoreManager.ShowScore();
                         ScoreManager._totalScore += 5;
                     }
                 }

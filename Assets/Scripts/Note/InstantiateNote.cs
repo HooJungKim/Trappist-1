@@ -13,18 +13,6 @@ public class InstantiateNote : MonoBehaviour
     public float createTime = 1.0f;
     float currentTime = 0;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //for (int i = 0; i < 512; i++){
-        //    GameObject _instanceNote = (GameObject)Instantiate(_samplePrefab);
-        //    _instanceNote.transform.position = this.transform.position;
-        //    _instanceNote.transform.parent = this.transform;
-        //    _instanceNote.name = "SampleNote" + i;
-        //}
-    }
-
-    // Update is called once per frame
     void Update()
     {
         

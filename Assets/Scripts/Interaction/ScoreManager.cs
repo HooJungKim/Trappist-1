@@ -20,9 +20,6 @@ public class ScoreManager : MonoBehaviour
     private static int[] _scoreList = new int[999];
     public static int _totalScore;
 
-
-
-
     /*
     // 충돌 시간 측정
     private void CheckHitTime()
@@ -68,21 +65,10 @@ public class ScoreManager : MonoBehaviour
     // 점수 저장
     public static void SaveScore()
     {
-        /*RaycastHit hitinfo;
-        if (hitInfo.transform.name.Contains("Note"))
-        {
-            
-        }
-        */
-
-
-        //CheckScore();
         int i = 0;
         int _score = 5;
         _scoreList[i] = _score;
         i++;
-        //_isHit = false;
-
     }
 
     // 점수 출력

@@ -80,7 +80,6 @@ public class NoteManager : MonoBehaviour
     }
     private void Attack()
     {
-        //if (Vector3.Distance(transform.position, player.position) < attackRange)
         if (isCollisionSpaceShip == true)
         {
             HPBar.Instance.HP -= Random.Range(5, 10);
@@ -122,8 +121,6 @@ public class NoteManager : MonoBehaviour
         expAudio.Play();
         // 노트 없애기
         Destroy(gameObject);
-        // score 상승
-        //ScoreManager._totalScore++;
     }
 
 }
